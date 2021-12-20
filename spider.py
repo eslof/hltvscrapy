@@ -47,11 +47,3 @@ class HLTVSpider(scrapy.Spider):
             loader.add_css("team_2", 'div[class="line-align team2"] ::text')
             loader.add_css("team_2_score", "td[class=result-score]")
             yield loader.load_item()
-
-
-process = CrawlerProcess(
-    settings={"USER_AGENT": USER_AGENT, "FEEDS": {"out.json": {"format": "json"}, }, }
-)
-
-process.crawl(HLTVSpider)
-process.start()
